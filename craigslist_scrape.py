@@ -16,7 +16,7 @@ else:
 	print(usg_msg)
 	exit(1)
 
-my_url = "https://monterey.craigslist.org/search/sya?query=" + product_name
+my_url = "https://inlandempire.craigslist.org/search/sya?query=" + product_name
 uClient = urlopen(my_url) 
 page_html = uClient.read() # puts contents into var, raw html
 uClient.close()
@@ -38,7 +38,7 @@ for result in results:
 
 	price = result.a.text.strip()
 	
-	result_name = result.p.a.text
+	result_name = result.p.a.text.replace(",", "-")
 	
 	time_posted = result.p.time["title"]
 
